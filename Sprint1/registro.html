@@ -39,14 +39,22 @@
     </section>
 </body>
 <script>    
-    function validaCorreo(cadena) {    
-      const valueInput = document.getElementById("campoCorreo").value; 
-        if (validarCorreo(cadena)) {
-            alert(cadena + " OK :)");
-        } else {
-            document.getElementById("campoCorreo").value = "";
-            alert(cadena + " is not correct, please retry:(");
-        }
-    }    
+    function validaCorreo(cadena) { 
+        if(cadena.length>0){
+            if(cadena.length  < 15 && cadena.length  > 40){
+                alert(cadena + " is not correct, please retry:(");
+                return false;
+            }
+
+            if (validar_correo(cadena)) {
+                alert(cadena + " OK :)");
+                return true;
+            } else {
+                document.getElementById("campoCorreo").value = "";
+                alert(cadena + " is not correct, please retry:(");
+                return false;
+            }
+        }    
+    }
     </script>    
 </html>

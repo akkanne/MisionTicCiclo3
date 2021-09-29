@@ -1,4 +1,4 @@
-function validarCorreo(emailaddress){
+function validar_correo(emailaddress){
         
     if (validateEmailAddress(emailaddress)) {
         return true;
@@ -12,4 +12,4 @@ function validateEmailAddress(email) {
     return re.test(email);
 }
 
-module.exports.validarCorreo = validarCorreo;
+module.exports.validar_correo = validar_correo;
