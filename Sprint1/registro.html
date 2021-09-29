@@ -4,36 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script lang="Javascript" type="text/javascript" src="js/form2.js"></script>
     <title>Formulario</title>
 </head>
 <body>
     <header id="mainheader">
         <h1>Formulario de inscripcion</h2>
     </header>
-<section class="main-content">
-    <div id="formulario" class="content">
-        <label for="campoNombre">Nombre
-            <input id="campoNombre" maxlength="20" placeholder="ingrese Nombre Completo" type="text">
-        </label>
-        <br><br>
-        <label for="campoContraseña">Contraseña
-            <input id="campoContraseña" type="password" placeholder="Ingrese Contraseña">
-        </label>
-        <br><br>
-        <label for="campoCorreo">Correo 
-        <input id="campoCorreo" type="text" placeholder="Ingrese Correo">
-        </label>
-        <br><br>
-        <label for="campoConfirmacionCorreo">Confirmacion Correo
-        <input id="campoConfirmacionCorreo" type="email" placeholder="Por Favor Confirme Correo">
-        </label>
-        <br><br>
-        <label for="campoTelefonoMovil">Telefono Movil
-        <input id="campoTelefonoMovil" type="number" placeholder="Ingrese numero celular" maxlength="10"> 
-        </label>
-    </div>
-</section>
-    
+    <section class="main-content">
+        <div id="formulario" class="content">
+            <label for="campoNombre">Nombre
+                <input id="campoNombre" maxlength="20" placeholder="ingrese Nombre Completo" type="text">
+            </label>
+            <br><br>
+            <label for="campoContraseña">Contraseña
+                <input id="campoContraseña" type="password" placeholder="Ingrese Contraseña">
+            </label>
+            <br><br>
+            <label for="campoCorreo">Correo 
+            <input id="campoCorreo" type="text" placeholder="Ingrese Correo" onblur="validaCorreo(this.value)">
+            <h2 id='result'></h2>
+            </label>
+            <br><br>
+            <label for="campoConfirmacionCorreo">Confirmacion Correo
+            <input id="campoConfirmacionCorreo" type="email" placeholder="Por Favor Confirme Correo" onblur="validaCorreo(this.value)">
+            </label>
+            <br><br>
+            <label for="campoTelefonoMovil">Telefono Movil
+            <input id="campoTelefonoMovil" type="number" placeholder="Ingrese numero celular" maxlength="10"> 
+            </label>
+        </div>
+        <h2 id='result'></h2>
+    </section>
 </body>
+<script>    
+    function validaCorreo(cadena) {    
+      const valueInput = document.getElementById("campoCorreo").value; 
+        if (validarCorreo(cadena)) {
+            alert(cadena + " OK :)");
+        } else {
+            document.getElementById("campoCorreo").value = "";
+            alert(cadena + " is not correct, please retry:(");
+        }
+    }    
+    </script>    
 </html>
