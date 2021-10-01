@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
-    <script lang="Javascript" type="text/javascript" src="js/form2.js"></script>
     <title>Formulario</title>
 </head>
 <body>
@@ -15,11 +14,11 @@
     <section class="main-content">
         <div id="formulario" class="content">
             <label for="campoNombre">Nombre
-                <input id="campoNombre" maxlength="20" placeholder="ingrese Nombre Completo" type="text">
+                <input id="campoNombre" maxlength="20" placeholder="ingrese Nombre Completo" type="text" onblur="validaUsuario(this.value)"> 
             </label>
             <br><br>
             <label for="campoContraseña">Contraseña
-                <input id="campoContraseña" type="password" placeholder="Ingrese Contraseña">
+                <input id="campoContraseña" type="password" placeholder="Ingrese Contraseña" onblur="validaContrasena(this.value)">
             </label>
             <br><br>
             <label for="campoCorreo">Correo 
@@ -38,14 +37,10 @@
         <h2 id='result'></h2>
     </section>
 </body>
+<script lang="Javascript" type="text/javascript" src="js/form2.js"></script>
 <script>    
     function validaCorreo(cadena) { 
-        if(cadena.length>0){
-            if(cadena.length  < 15 && cadena.length  > 40){
-                alert(cadena + " is not correct, please retry:(");
-                return false;
-            }
-
+        if (cadena.length > 0){
             if (validar_correo(cadena)) {
                 alert(cadena + " OK :)");
                 return true;
@@ -54,7 +49,30 @@
                 alert(cadena + " is not correct, please retry:(");
                 return false;
             }
-        }    
+        }
+    }
+    
+    function validaUsuario(usuario){
+        if (usuario.length > 0){
+            if(validar_contrasena_usuario(usuario,usuario)){
+                alert(password + " OK :)");
+                document.getElementById("campoNombre").value = "";
+            } else {
+                alert(password + " the user is not validate, please validate politica retry:(");
+            }
+        }
+
+    }
+
+    function validaContrasena(password){
+        if (password.length > 0){
+            if(validar_contrasena_usuario(password, password)){
+                alert(password + " OK :)");
+                document.getElementById("campoContraseña").value = "";
+            } else {
+                alert(password + " the password is not validate, please retry:(");
+            }
+        }
     }
     </script>    
 </html>
