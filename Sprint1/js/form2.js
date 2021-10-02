@@ -14,15 +14,12 @@ function validar_contrasena_usuario(user,password){
     regexp2=/^\S{6,12}$/
     if (regexp1.test(user) && regexp2.test(user)
     && regexp1.test(password) && regexp2.test(password)) {
-        return true
-    }else{
         return false
+    }else{
+        return true
     }
 
 }
-
-
-
 
 module.exports.validar_correo = validar_correo;
 module.exports.validar_contrasena_usuario = validar_contrasena_usuario;
