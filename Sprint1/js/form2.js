@@ -9,15 +9,13 @@ function validar_correo(email){
 }
 
 
-function validar_contrasena_usuario(user,password){
+function validar_contrasena_usuario(password){
     regexp1=/^([A-Z]{1,}\S+)$/
     regexp2=/^\S{6,12}$/
-    if (regexp1.test(user) && regexp2.test(user)
-    && regexp1.test(password) && regexp2.test(password)) {
+    if (regexp1.test(password) && regexp2.test(password)) {
         return false
     }else{
         return true
-    }
 
 }
 
