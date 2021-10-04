@@ -1,8 +1,9 @@
 function validar_correo(email){
-    var regexp1=/^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/
+    // var regexp1=/^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/
+    var regexp1 = /\S+@\S+\.(com|es|co|org)/
     var regexp2=/^([\S]){15,40}$/
     if (regexp1.test(email) && regexp2.test(email)) {
-        return true
+        return false
     }else{
         return false
     }
@@ -16,7 +17,7 @@ function validar_contrasena_usuario(password){
         return false
     }else{
         return true
-
+    }
 }
 
 module.exports.validar_correo = validar_correo;
